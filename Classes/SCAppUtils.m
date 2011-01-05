@@ -12,13 +12,15 @@
     UINavigationBar *navBar = [navController navigationBar];
     [navBar setTintColor:kSCNavigationBarTintColor];
     
-    UIImageView *imageView = (UIImageView *)[navBar viewWithTag:kSCNavigationBarBackgroundImageTag];
-    if (imageView == nil)
+    UIView *myView = (UIView *)[navBar viewWithTag:kSCNavigationBarBackgroundImageTag];
+    if (myView == nil)
     {
-        imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navigation-bar-bg.png"]];
-        [imageView setTag:kSCNavigationBarBackgroundImageTag];
-        [navBar insertSubview:imageView atIndex:0];
-        [imageView release];
+	myView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 44.0)];
+	myView.backgroundColor = [UIColor redColor];
+		
+	myView.tag = kSCNavigationBarBackgroundImageTag;
+	[navBar insertSubview:myView atIndex:0];
+	[myView release];
     }
 }
 
